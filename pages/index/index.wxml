@@ -1,0 +1,5 @@
+<!--pages/index/index.wxml-->
+<view>
+<i-button type="primary" bind:click="handleClick">{{text}}</i-button>
+
+</view>
