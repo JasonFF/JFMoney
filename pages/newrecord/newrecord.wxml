@@ -1,0 +1,33 @@
+<!--pages/newrecord/newrecord.wxml-->
+<view style="display: flex;flex-direction: column;justify-content: space-between;padding-bottom: 10vh;">
+<view>
+
+  <i-panel class="cell-panel-demo" title="记账信息">
+    <i-cell title="记账日期">
+        <text slot="footer">{{date}}</text>
+    </i-cell>
+    <i-cell title="净值">
+        <text slot="footer">{{net}}</text>
+    </i-cell>
+  </i-panel>
+  <i-panel title="资产账本">
+    <i-cell-group>
+      <i-cell wx:for="{{propertyList}}" title="{{item.name}}" wx:key="{{item.id}}">
+        <input slot="footer" data-param="{{item.id}}" bindinput="handleInput" placeholder='请输入金额' type="digit"/>
+      </i-cell>
+    </i-cell-group>
+  </i-panel>
+  <i-panel title="负债账本">
+    <i-cell-group>
+      <i-cell wx:for="{{loanList}}" title="{{item.name}}" wx:key="item.id">
+        <input slot="footer" data-param="{{item.id}}" bindinput="handleInput" placeholder='请输入金额' type="digit"/>
+      </i-cell>
+    </i-cell-group>
+  </i-panel>
+</view>
+
+  <view style="margin-top: 10vh">
+    <i-button bind:click="submit" type="success">提交</i-button>
+  </view>
+  
+</view>

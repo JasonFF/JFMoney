@@ -1,0 +1,29 @@
+/* components/nav-btn/index.wxss */
+.navBox {
+  display: flex;
+  flex-direction: column;
+  width:50vw;
+  height: 100vh;
+  background:#fff;
+}
+.navBtn {
+  background: #fff;
+  position: fixed;
+  bottom:2vw;
+  right:2vw;
+  color: #666;
+  border-radius: 3vw;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  width: 15vw;
+  height: 15vw;
+  line-height: 15vw;
+  padding: 0;
+  z-index: 999;
+}
+.navItem {
+  text-align: center;
+  line-height: 10vh;
+  border-bottom: 1px solid #f5f5f5;
+
+}

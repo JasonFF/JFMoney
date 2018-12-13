@@ -1,0 +1,20 @@
+<!--components/nav-btn/index.wxml-->
+<button class="navBtn" bindtap="toggleNav">
+  <i-icon type="more" />
+</button>
+<i-drawer mode="left" visible="{{navStatus}}" bind:close="toggleNav">
+    <view class="navBox">
+        <view class='navItem'>
+        <navigator url="/pages/index/index" open-type="navigateBack">首页</navigator>
+        </view>
+        <view class='navItem'>
+        <navigator url="/pages/myaccount/myaccount" open-type="redirect">我的账本</navigator>
+        </view>
+        <view class='navItem'>
+          <navigator url="/pages/torecord/torecord" open-type="redirect">我要记账</navigator>
+        </view>
+        <view class='navItem'>
+        <navigator url="/pages/datacenter/datacenter" open-type="redirect">数据中心</navigator>
+        </view>
+    </view>
+</i-drawer>

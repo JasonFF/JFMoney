@@ -1,11 +1,11 @@
 
 const fsio = {
-  setTd(data) {
+  setDataObj(data) {
     return Promise.all(Object.keys(data).map(key => {
-      return fsio.setSingleData(key, data[key])
+      return fsio.setData(key, data[key])
     }))
   },
-  setSingleData(key, value) {
+  setData(key, value) {
     return new Promise((resovle, reject) => {
       wx.setStorage({
         key,
@@ -19,15 +19,20 @@ const fsio = {
       })
     })
   },
-  getTd(key) {
+  getDataObj(obj) {
+    return Promise.all(Object.keys(obj).map(key => {
+      return fsio.getData(key, obj[key])
+    }))
+  },
+  getData(key, defaultVal) {
     return new Promise((resovle, reject) => {
       wx.getStorage({
         key,
         success(res) {
-          resovle(res.data)
+          resovle(JSON.parse(res.data))
         },
         fail(e) {
-          reject(e)
+          resovle(defaultVal)
         }
       })
     })

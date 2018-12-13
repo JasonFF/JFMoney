@@ -1,0 +1,18 @@
+<!--pages/newaccount/newaccount.wxml-->
+<view style="display: flex;flex-direction: column;justify-content: space-between;height: 90vh;padding-bottom: 10vh;">
+  <i-cell-group>
+    <i-cell title="账本名称">
+        <i-input value="{{name}}" data-param="name" bind:change="handleInput" slot="footer" />
+    </i-cell>
+    <i-cell title="账本类型">
+      <i-radio-group current="{{typeName}}" bindchange="handleType">
+          <i-radio position="right" key="1" value="资产"></i-radio>
+          <i-radio position="right" key="2" value="负债"></i-radio>
+      </i-radio-group>
+    </i-cell>
+    <!-- <i-cell title="账本余额">
+        <i-input type="digit" value="{{money}}" data-param="money" bind:change="handleInput" slot="footer" />
+    </i-cell> -->
+  </i-cell-group>
+  <i-button bind:click="submit" type="success">提交</i-button>
+</view>

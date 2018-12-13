@@ -1,0 +1,26 @@
+<!--pages/accountdetail/accountdetail.wxml-->
+<view>
+  <view style="display: flex; justify-content: space-around;align-items: center">
+    <view>
+      <text class='iconfont icon-{{accountDetail.type == "资产"?"property":"loan"}}' style="font-size: 100rpx"></text>
+      
+    </view>
+    <view>
+    <view class='text-right' style="font-size: 60rpx">{{accountDetail.name}}</view>
+    <view class='text-right' style="font-size: 30rpx;color: #999">{{accountDetail.type}}</view>
+    <view class='text-right' style="font-size: 30rpx;color: #999">{{accountDetail.createTime}}</view>
+    </view>
+  </view>
+  <view style="display: flex;justify-content: space-around;align-items: center">
+    <view>
+      <text style="font-size: 30rpx;color: #999">账本余额：</text><text style="font-weight:bold;font-size: 50rpx">{{accountDetail.money}}</text>
+    </view>
+    <view>
+      <i-button shape="circle" bind:click="toUpdateMoney" type="error" size="small">删除账本</i-button>
+    </view>
+  </view>
+</view>
+<i-modal title="确认删除" actions="{{modalAction}}" visible="{{ updateModalStatus }}" bind:click="handleUpdate">
+  <view style="padding: 30rpx 50rpx">确认要删除该账本么？删除之后，之前的该账本的记账记录将归到其他账本。且无法恢复。</view>
+</i-modal>
+<i-message id="message" />

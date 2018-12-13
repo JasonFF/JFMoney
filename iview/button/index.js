@@ -7,6 +7,10 @@ Component({
             type: String,
             value: '',
         },
+        iStyle: {
+          type: String,
+          value: ''
+        },
         inline: {
             type: Boolean,
             value: false
@@ -55,7 +59,11 @@ Component({
         sendMessageTitle: String,
         sendMessagePath: String,
         sendMessageImg: String,
-        showMessageCard: Boolean
+        showMessageCard: Boolean,
+        iClass: {
+          type: String,
+          value: ''
+        }
     },
 
     methods: {

@@ -1,13 +1,36 @@
-// pages/index/index.js
+// pages/newaccount/newaccount.js
+const account = require('../../data/account.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    name: '',
+    typeName: '资产',
+    money: 0
   },
-
+  handleType(e) {
+    this.setData({
+      typeName: e.detail.value
+    })
+  },
+  handleInput(e) {
+    let result = {}
+    result[`${e.target.dataset.param}`] = e.detail.detail.value
+    this.setData(result)
+  },
+  submit() {
+    account.newAccount({
+      name: this.data.name,
+      type: this.data.typeName,
+      money: this.data.money
+    }).then(() => {
+      wx.redirectTo({
+        url: '/pages/myaccount/myaccount',
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

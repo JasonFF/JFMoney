@@ -1,10 +1,17 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/datacenter/datacenter",
+    "pages/myaccount/myaccount",
+    "pages/newaccount/newaccount",
+    "pages/accountdetail/accountdetail",
+    "pages/myrecord/myrecord",
+    "pages/newrecord/newrecord",
+    "pages/recorddetail/recorddetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FAFAFA",
-    "navigationBarTitleText": "iView WeApp",
+    "navigationBarTitleText": "JFMoney",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#f9f9f9"

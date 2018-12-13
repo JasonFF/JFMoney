@@ -1,5 +1,14 @@
 <!--pages/index/index.wxml-->
-<view>
-<i-button type="primary" bind:click="handleClick">{{text}}</i-button>
-
+<view class="indexContainer">
+  <view class="navBox">
+        <view class='navItem'>
+        <navigator url="/pages/myaccount/myaccount" open-type="navigate">我的账本</navigator>
+        </view>
+        <view class='navItem'>
+          <navigator url="/pages/myrecord/myrecord" open-type="navigate">我的记账</navigator>
+        </view>
+        <view class='navItem'>
+        <navigator url="/pages/datacenter/datacenter" open-type="navigate">数据中心</navigator>
+        </view>
+    </view>
 </view>
