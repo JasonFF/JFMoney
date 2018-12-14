@@ -1,3 +1,21 @@
 <!--pages/datacenter/datacenter.wxml-->
-<nav-btn/>
-<text>pages/datacenter/datacenter.wxml</text>
+<i-spin custom fix wx:if="{{ spinShow }}">
+  <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+  <view>Loading</view>
+</i-spin>
+<view style="display: flex;flex-direction: column;justify-content: space-around; height: 50vh">
+  <view>
+    <i-button type="primary" bind:click="toSaveData">存储数据到云端</i-button>
+  </view>
+  <view>
+    <i-button type="success" bind:click="toDownloadData">从云端读取数据</i-button>
+  </view>
+</view>
+
+<i-modal title="确认上传" actions="{{ [{ name: '取消'},{name: '确认',color: '#ed3f14'}] }}" visible="{{ uploadStatus }}" bind:click="saveData">
+  <view style="padding: 30rpx 50rpx">确认要上传本地数据到云端么？</view>
+</i-modal>
+<i-modal title="确认下载" actions="{{ [{ name: '取消'},{name: '确认',color: '#ed3f14'}] }}" visible="{{ downloadStatus }}" bind:click="downloadData">
+  <view style="padding: 30rpx 50rpx">确认要下载云端数据到本地么？本地数据将被覆盖。</view>
+</i-modal>
+<i-message id="message" />

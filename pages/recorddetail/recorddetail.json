@@ -6,6 +6,8 @@
     "i-radio-group": "../../iview/radio-group/index",
     "i-radio": "../../iview/radio/index",
     "i-panel": "../../iview/panel/index",
-    "i-button": "../../iview/button/index"
+    "i-button": "../../iview/button/index",
+    "i-modal": "../../iview/modal/index",
+    "i-message": "../../iview/message/index"
   }
 }

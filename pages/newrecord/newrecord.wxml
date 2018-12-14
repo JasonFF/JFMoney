@@ -7,7 +7,7 @@
         <text slot="footer">{{date}}</text>
     </i-cell>
     <i-cell title="净值">
-        <text slot="footer">{{net}}</text>
+        <text style="font-size: 40rpx; font-weight: bold" slot="footer">{{net}}</text>
     </i-cell>
   </i-panel>
   <i-panel title="资产账本">

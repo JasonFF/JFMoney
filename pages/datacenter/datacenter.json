@@ -1,5 +1,11 @@
 {
   "usingComponents": {
-    "nav-btn": "../../components/nav-btn/index"
+    "nav-btn": "../../components/nav-btn/index",
+    "i-button": "../../iview/button/index",
+    "i-modal": "../../iview/modal/index",
+    "i-message": "../../iview/message/index",
+    "i-spin": "../../iview/spin/index",
+    "i-icon": "../../iview/icon/index"
+
   }
 }

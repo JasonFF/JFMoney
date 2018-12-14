@@ -11,7 +11,7 @@
         <navigator url="/pages/myaccount/myaccount" open-type="redirect">我的账本</navigator>
         </view>
         <view class='navItem'>
-          <navigator url="/pages/torecord/torecord" open-type="redirect">我要记账</navigator>
+          <navigator url="/pages/myrecord/myrecord" open-type="redirect">我的记账</navigator>
         </view>
         <view class='navItem'>
         <navigator url="/pages/datacenter/datacenter" open-type="redirect">数据中心</navigator>

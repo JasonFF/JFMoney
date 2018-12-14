@@ -12,7 +12,29 @@ Page({
     accountList: [],
     propertyList: [],
     loanList: [],
+    deleteModalStatus: false,
+    modalAction: [
+      {
+        name: '取消'
+      },
+      {
+        name: '删除',
+        color: '#ed3f14'
+      }
+    ],
 
+  },
+  deleteItem() {
+    this.setData({
+      deleteModalStatus: true
+    })
+  },
+  handleDelete(e) {
+    if (e.detail.index == 1) {
+      account.deleteChecking(this.data.chooseId).then(() => {
+        wx.navigateBack()
+      })
+    }
   },
   submit() {
     let record = {}
@@ -37,6 +59,7 @@ Page({
     })
     this.getNet()
   },
+  
   getNet() {
     let net = 0
     this.data.accountList.forEach(it => {

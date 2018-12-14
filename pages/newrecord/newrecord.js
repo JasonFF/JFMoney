@@ -11,12 +11,13 @@ Page({
     accountList: [],
     propertyList: [],
     loanList: [],
-
+    record: {},
+    net: ''
   },
   submit() {
     let record = {}
     this.data.accountList.forEach(it => {
-      record[`$${it.id}`] = this.data[`$${it.id}`] || 0
+      record[`$${it.id}`] = this.data.record[`$${it.id}`] || 0
     })
     account.newChecking({
       time: this.data.date,
@@ -31,9 +32,25 @@ Page({
     let id = e.target.dataset.param
     let val = e.detail.value
     this.setData({
-      [`$${id}`]: val/1
+      record: {
+        ...this.data.record,
+        [`$${id}`]: val / 1
+      }
     })
-    console.log(e)
+    this.getNet()
+  },
+  getNet() {
+    let net = 0
+    this.data.accountList.forEach(it => {
+      if (it.type == '资产') {
+        net = net + (this.data.record[`$${it.id}`]?(this.data.record[`$${it.id}`] / 1):0)
+      } else {
+        net = net - (this.data.record[`$${it.id}`]?(this.data.record[`$${it.id}`] / 1):0)
+      }
+    })
+    this.setData({
+      net: net.toFixed(2)
+    })
   },
   getAccountList() {
     account.getAccountList().then(list => {
