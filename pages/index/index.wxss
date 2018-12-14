@@ -5,5 +5,8 @@
 }
 .navItem {
   line-height: 20vh;
-  text-align: center
+  text-align: center;
+  color: #666;
+  font-weight: bold;
+  font-size: 40rpx
 }

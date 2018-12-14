@@ -34,7 +34,7 @@ Page({
     this.setData({
       record: {
         ...this.data.record,
-        [`$${id}`]: val / 1
+        [`$${id}`]: val
       }
     })
     this.getNet()

@@ -66,7 +66,9 @@ const account = {
     return fsio.setData('accountList', JSON.stringify(list))
   },
   updateCheckingList(list) {
-    return fsio.setData('checkingList', JSON.stringify(list))
+    return fsio.setData('checkingList', JSON.stringify(list)).then(() => {
+      account.initAccountMoney()
+    })
   },
   newAccount(item) {
     return account.getAccountList().then(accountList => {
@@ -84,13 +86,8 @@ const account = {
       return account.getAccountList().then(accountList => {
 
         let accountTypeObj = {}
-        let resultList = []
         accountList.forEach(accItem => {
           accountTypeObj[`$${accItem.id}`] = accItem.type == '资产' ? 1 : -1
-          resultList.push({
-            ...accItem,
-            money: item.record[`$${accItem.id}`]
-          })
         })
         let record = item.record
         let net = 0
@@ -106,7 +103,7 @@ const account = {
         })
         
         return account.updateCheckingList(list).then(() => {
-          return account.updateAccountList(resultList)
+          return account.initAccountMoney()
         })
       })
       
@@ -132,6 +129,21 @@ const account = {
           })
         })
         return account.updateCheckingList(resultCheckingList)
+      })
+    })
+  },
+  initAccountMoney() {
+    account.getAccountList().then(accountList => {
+      account.getCheckingList().then(list => {
+        const newItem = list[list.length - 1]
+        let resultList = []
+        accountList.forEach(accItem => {
+          resultList.push({
+            ...accItem,
+            money: newItem.record[`$${accItem.id}`]
+          })
+        })
+        account.updateAccountList(resultList)
       })
     })
   },
@@ -170,7 +182,9 @@ const account = {
           result.push(list[i])
         }
       }
-      account.updateCheckingList(result)
+      account.updateCheckingList(result).then(() => {
+        account.initAccountMoney()
+      })
     })
   },
   updateCheckingDetail(id, item) {

@@ -21,7 +21,7 @@ Page({
             ...it,
             diff: index?(it.net-_arr[index-1].net).toFixed(2):0
           }
-        })
+        }).reverse()
       })
     })
   },

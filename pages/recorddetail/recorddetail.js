@@ -34,7 +34,12 @@ Page({
       account.deleteChecking(this.data.chooseId).then(() => {
         wx.navigateBack()
       })
+    } else {
+      this.setData({
+        deleteModalStatus: false
+      })
     }
+    
   },
   submit() {
     let record = {}
@@ -54,7 +59,7 @@ Page({
     this.setData({
       record: {
         ...this.data.record,
-        [`$${id}`]: val / 1
+        [`$${id}`]: val
       }
     })
     this.getNet()
